@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 import { FormInput } from './Form/FormInput';
 import ContactsList from './ContactsList/ContactsList';
+import FilterContacts from './FilterContacts/FilterContacts';
 import { nanoid } from 'nanoid';
 // import CheckBox from './CheckBox/CheckBox';
 // import Select from './Select/Select';
@@ -14,6 +15,7 @@ export class App extends Component {
       { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
       { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     ],
+    value: '',
   };
 
   formSubmitHandler = data => {
@@ -34,18 +36,34 @@ export class App extends Component {
     }));
   };
 
-  render() {
-    return (
-      <div>
-        <h1>Phonebook</h1>
-        <FormInput
-          onBtnSubmit={this.formSubmitHandler}
-          name={this.state.name}
-        />
+  onChange = e => this.setState({ value: e.currentTarget.value });
 
+  render() {
+    const { formSubmitHandler } = this;
+    const { contacts, value } = this.state;
+    const filteredContacts = value
+      ? contacts.filter(el =>
+          el.name.toLowerCase().includes(value.toLowerCase())
+        )
+      : contacts;
+    return (
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          flexDirection: 'column',
+          alignItems: 'center',
+          margin: '0 auto',
+          width: '80vw',
+          gap: '40px',
+        }}
+      >
+        <h1>Phonebook</h1>
+        <FormInput onBtnSubmit={formSubmitHandler} name={this.state.name} />
+        <FilterContacts onChange={this.onChange} value={value} />
         <h2>Contacts:</h2>
         <ContactsList
-          contacts={this.state.contacts}
+          contacts={filteredContacts}
           handleDeleteContact={this.handleDeleteContact}
         />
         {/* {this.state.contacts.map(contact => (
