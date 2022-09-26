@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { nanoid } from 'nanoid';
@@ -75,3 +76,7 @@ export class FormInput extends Component {
     );
   }
 }
+
+FormInput.propTypes = {
+  onBtnSubmit: PropTypes.func.isRequired,
+};
