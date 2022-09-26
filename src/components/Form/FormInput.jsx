@@ -60,7 +60,13 @@ export class FormInput extends Component {
               pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
               title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             />{' '}
-            <Button variant="primary" type="submit">
+            <Button
+              variant="primary"
+              type="submit"
+              style={{
+                marginTop: '20px',
+              }}
+            >
               Add contacts
             </Button>
           </Form.Group>
