@@ -1,4 +1,5 @@
 import Form from 'react-bootstrap/Form';
+import PropTypes from 'prop-types';
 
 function FilterContacts({ onChange, value }) {
   return (
@@ -18,3 +19,8 @@ function FilterContacts({ onChange, value }) {
 }
 
 export default FilterContacts;
+
+FilterContacts.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};

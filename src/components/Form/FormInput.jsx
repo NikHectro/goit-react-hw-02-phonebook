@@ -75,5 +75,3 @@ export class FormInput extends Component {
     );
   }
 }
-
-// ({ onChangeInput, name, onSubmit }) => {};

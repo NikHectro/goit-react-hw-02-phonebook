@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-
 import { FormInput } from './Form/FormInput';
 import ContactsList from './ContactsList/ContactsList';
 import FilterContacts from './FilterContacts/FilterContacts';
-import { nanoid } from 'nanoid';
+// import { nanoid } from 'nanoid';
 // import CheckBox from './CheckBox/CheckBox';
 // import Select from './Select/Select';
 
