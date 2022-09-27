@@ -58,7 +58,7 @@ export class App extends Component {
         }}
       >
         <h1>Phonebook</h1>
-        <FormInput onBtnSubmit={formSubmitHandler} name={this.state.name} />
+        <FormInput onBtnSubmit={formSubmitHandler} />
         <FilterContacts onChange={this.onChange} value={value} />
         <h2>Contacts:</h2>
         <ContactsList
